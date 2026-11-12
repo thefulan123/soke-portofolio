@@ -319,7 +319,7 @@ export default function AboutMe() {
         .sc-reveal-upper-line {
           font-family: 'Montserrat', sans-serif;
           font-weight: 300;
-          font-size: 20px;
+          font-size: clamp(17px, 1.6vw, 26px);
           letter-spacing: 0.5px;
           line-height: 1.15;
         }
@@ -342,7 +342,6 @@ export default function AboutMe() {
           font-size: 22px;
           line-height: 1.18;
           letter-spacing: 0.4px;
-          text-transform: lowercase;
           white-space: normal;
           overflow-y: auto;
           padding: 10px 18px 10px 22px;
