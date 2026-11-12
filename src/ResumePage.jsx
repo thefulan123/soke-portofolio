@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { media } from "./media";
 import PageTransition from "./PageTransition";
 import profile from "./content/profile";
@@ -112,25 +112,6 @@ export default function ResumePage() {
               </section>
             ))}
           </div>
-
-          <div style={{ height: "clamp(18px, 4vh, 40px)" }} />
-
-          <section className="p3section">
-            <h2 className="p3section-title">SELECTED PROJECTS</h2>
-            <ul className="p3ul">
-              {projects.map((p) => (
-                <li key={p.slug}>
-                  <Link
-                    to={`/projects/${p.slug}`}
-                    style={{ color: "#ff8a5c", textDecoration: "none" }}
-                  >
-                    {p.title}
-                  </Link>{" "}
-                  — {p.status}
-                </li>
-              ))}
-            </ul>
-          </section>
 
           <div style={{ height: "clamp(18px, 4vh, 40px)" }} />
 

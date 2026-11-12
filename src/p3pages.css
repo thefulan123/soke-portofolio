@@ -372,3 +372,97 @@
     transition: none;
   }
 }
+
+/* Resume is meant to be printable: flatten the dark scene. */
+@media print {
+  html,
+  body,
+  #root {
+    height: auto !important;
+    overflow: visible !important;
+    background: #fff !important;
+  }
+
+  .p3page {
+    position: static !important;
+    height: auto !important;
+    overflow: visible !important;
+    background: #fff !important;
+    color: #000 !important;
+  }
+
+  .p3page-bg,
+  .p3page-scrim,
+  .p3back,
+  .p3hint,
+  .p3-transition-block,
+  video {
+    display: none !important;
+  }
+
+  .p3page-scroll {
+    position: static !important;
+    height: auto !important;
+    overflow: visible !important;
+    padding: 6mm 0 0 !important;
+  }
+
+  .p3page-title {
+    color: #000 !important;
+    text-shadow: none !important;
+    font-size: 30pt !important;
+    line-height: 1 !important;
+  }
+
+  .p3page-kicker {
+    color: #b02020 !important;
+  }
+
+  .p3page-sub,
+  .p3section-text,
+  .p3ul li,
+  .p3card-body,
+  .p3card-sub {
+    color: #333 !important;
+  }
+
+  .p3card {
+    background: #fff !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    clip-path: none !important;
+    border: 1px solid #bbb;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .p3card-title,
+  .p3skill-cat {
+    color: #000 !important;
+  }
+
+  .p3section {
+    background: #fff !important;
+    border-left: 3px solid #b02020 !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .p3section-title {
+    color: #b02020 !important;
+  }
+
+  .p3tag {
+    border-color: #888 !important;
+    color: #333 !important;
+  }
+
+  .p3status {
+    background: #b02020 !important;
+    color: #fff !important;
+  }
+
+  .p3back-btn {
+    display: none !important;
+  }
+}

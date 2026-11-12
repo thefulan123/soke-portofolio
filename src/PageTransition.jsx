@@ -6,6 +6,7 @@ const defaultBlocks = ["#0d1a3a", "#1a6aff", "#7dd4fc"];
 function DefaultTransition() {
   return defaultBlocks.map((color, i) => (
     <Motion.div
+      className="p3-transition-block"
       key={i}
       style={{
         position: "fixed",
@@ -35,6 +36,7 @@ function AboutTransition() {
 
   return panels.map((panel, i) => (
     <Motion.div
+      className="p3-transition-block"
       key={i}
       style={{
         position: "fixed",
@@ -70,6 +72,7 @@ function SocialsTransition() {
 
   return stripes.map((stripe, i) => (
     <Motion.div
+      className="p3-transition-block"
       key={i}
       style={{
         position: "fixed",
@@ -111,6 +114,7 @@ function ResumeTransition() {
 
   return cards.map((card, i) => (
     <Motion.div
+      className="p3-transition-block"
       key={i}
       style={{
         position: "fixed",
