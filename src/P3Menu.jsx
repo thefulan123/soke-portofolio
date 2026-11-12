@@ -8,7 +8,7 @@ const ITEMS = [
   { id: "contact",  label: "CONTACT",         page: "contact",  fontSize: 70, offsetX: 6,  offsetY: 4,  skew: -3,  skewY: 5   },
 ];
 
-const CLIP_SHAPE = (w, h) => `polygon(0px 0px, ${w}px ${h * 0.5}px, 0px ${h}px)`;
+const CLIP_SHAPE = "polygon(0% 0%, 100% 50%, 0% 100%)";
 
 export default function P3Menu({ onNavigate }) {
   const [active, setActive] = useState(0);
@@ -94,6 +94,7 @@ export default function P3Menu({ onNavigate }) {
           display: flex;
           align-items: center;
           isolation: isolate;
+          padding-right: clamp(26px, 3.2vw, 58px);
         }
 
         @keyframes p3-shadow-pop {
@@ -175,16 +176,16 @@ export default function P3Menu({ onNavigate }) {
 
         .p3-name-tag {
           position: absolute;
-          top: 18px;
-          left: 22px;
+          top: clamp(14px, 2vh, 26px);
+          left: clamp(42px, 4vw, 72px);
           z-index: 20;
           font-family: 'Anton', sans-serif;
           font-style: italic;
-          font-size: clamp(56px, 7.5vw, 108px);
-          line-height: 0.88;
+          font-size: clamp(40px, 5.4vw, 82px);
+          line-height: 0.86;
           letter-spacing: 2px;
           color: rgba(10, 10, 14, 0.64);
-          transform: rotate(18deg);
+          transform: rotate(10deg);
           transform-origin: left top;
           user-select: none;
           pointer-events: none;
@@ -195,9 +196,17 @@ export default function P3Menu({ onNavigate }) {
         .p3-name-tag span:first-child { color: rgba(0, 0, 0, 0.86); }
 
         @media (max-width: 768px) {
-          .p3-menu { padding: 12px; transform: scale(0.62); }
-          .p3-name-tag { transform: rotate(12deg); }
+          .p3-menu { padding: 10px; transform: scale(0.68); }
+          .p3-name-tag {
+            left: 34px;
+            font-size: clamp(30px, 8.5vw, 44px);
+            transform: rotate(8deg);
+          }
           .p3-hint { display: none; }
+        }
+
+        @media (max-width: 430px) {
+          .p3-menu { transform: scale(0.58); }
         }
       `}</style>
 
@@ -214,9 +223,6 @@ export default function P3Menu({ onNavigate }) {
             const isActive = active === i;
             const dist = Math.abs(i - active);
             const opacity = isActive ? 1 : Math.max(0.45, 1 - dist * 0.2);
-            const estW = item.label.length * item.fontSize * 0.6 + 80;
-            const estH = item.fontSize * 0.94;
-
             return (
               <a
                 key={item.id}
@@ -243,14 +249,14 @@ export default function P3Menu({ onNavigate }) {
                   <div
                     key={isActive ? `pop-${i}-${animKey}` : `idle-${i}`}
                     className={`p3-shadow-tri${isActive ? " pop" : ""}`}
-                    style={{ width: estW, height: estH, clipPath: CLIP_SHAPE(estW, estH) }}
+                    style={{ width: "100%", height: "100%", clipPath: CLIP_SHAPE }}
                   />
                   <div
                     className="p3-highlight"
                     style={{
-                      width: estW,
-                      height: estH,
-                      clipPath: CLIP_SHAPE(estW, estH),
+                      width: "100%",
+                      height: "100%",
+                      clipPath: CLIP_SHAPE,
                       transform: `translateY(-50%) scaleX(${isActive ? 1 : 0})`,
                     }}
                   />
@@ -260,7 +266,7 @@ export default function P3Menu({ onNavigate }) {
                     </span>
                     <span
                       className="p3-label-base p3-label-bright"
-                      style={{ fontSize: item.fontSize, clipPath: CLIP_SHAPE(estW, estH) }}
+                      style={{ fontSize: item.fontSize, clipPath: CLIP_SHAPE }}
                     >
                       {item.label}
                     </span>
