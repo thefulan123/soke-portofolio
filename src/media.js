@@ -8,8 +8,6 @@ const base = import.meta.env.BASE_URL;
 const v = "20261112b";
 
 export const media = {
-  menu: `${base}media/Mainn.mp4?v=${v}`,
-  about: `${base}media/main1.mp4?v=${v}`,
   resume: `${base}media/main2.mp4?v=${v}`,
   contact: `${base}media/main3.mp4?v=${v}`,
 };

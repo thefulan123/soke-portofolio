@@ -5,11 +5,7 @@ import profile from "./content/profile";
 import char1 from "./assets/char1.png";
 import char2 from "./assets/char2.png";
 import char3 from "./assets/char3.png";
-import mainm from "./assets/mainm.jpeg";
-import mainm2 from "./assets/mainm2.jpeg";
-import mainf from "./assets/mainf.jpeg";
-
-const bgVideo = media.about;
+import aboutArt from "./assets/about-art.png";
 
 const CHARS = [char1, char2, char3];
 const MAIN_IMAGES = [mainm, mainm2, mainf];
@@ -138,7 +134,22 @@ export default function AboutMe() {
 
   return (
     <div id="menu-screen">
-      <video src={bgVideo} autoPlay loop muted playsInline />
+      <div className="sc-bg-art" aria-hidden="true" style={artStyle}>
+        <div className="sc-caustics-overlay" aria-hidden="true" />
+        <img
+          src={aboutArt}
+          alt=""
+          style={{
+            position: "fixed",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            zIndex: -1,
+            animation: "ken-burns 20s ease-in-out infinite",
+          }}
+        />
+      </div>
       {revealed && <div key={`dim-${active}`} className="sc-dim" />}
       {revealed && (
         <div key={`panel-${active}`} className={`sc-reveal-panel${mounted ? " mounted" : ""}`}>
@@ -773,9 +784,47 @@ export default function AboutMe() {
             top: 46vh;
             left: -2vw;
             width: 78vw;
-            height: 52vh;
-            transform: translateX(0) rotate(-14deg);
+            }
+
+        @keyframes ken-burns {
+          0% {
+            transform: scale(1) translate(0, 0);
           }
+          50% {
+            transform: scale(1.02) translate(5%, 5%);
+          }
+          100% {
+            transform: scale(1) translate(0, 0);
+          }
+        }
+
+        @keyframes caustics-shift {
+          0% {
+            background-position: 0 0;
+          }
+          100% {
+            background-position: -100px -100px;
+          }
+        }
+
+        .sc-bg-art {
+          position: fixed;
+          inset: 0;
+          z-index: -1;
+          width: 100%;
+          height: 100%;
+          background-size: cover;
+        }
+
+        .sc-caustics-overlay {
+          position: fixed;
+          inset: 0;
+          pointer-events: none;
+          z-index: -1;
+          background: url("/soke-portofolio/assets/caustics.png") repeat;
+          mix-blend-mode: screen;
+          animation: caustics-shift 15s ease-in-out infinite;
+        }
 
           .sc-reveal-panel.mounted {
             transform: translateX(0) rotate(-14deg);

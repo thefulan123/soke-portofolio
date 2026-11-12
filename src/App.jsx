@@ -15,7 +15,8 @@ function MenuScreen() {
   const navigate = useNavigate()
   return (
     <div id="menu-screen">
-      <video src={media.menu} autoPlay loop muted playsInline />
+      <div className="sc-menu-art-bg" aria-hidden="true" />
+      <div className="sc-menu-caustics" aria-hidden="true" />
       <P3Menu onNavigate={(page) => navigate(`/${page}`)} />
     </div>
   )

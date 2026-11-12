@@ -28,7 +28,7 @@ export default function ProjectDetailPage() {
 
   if (!project) {
     return (
-      <PageShell variant="default" video={media.about}>
+      <PageShell variant="default" video={media.resume}>
         <header className="p3page-head">
           <div className="p3page-kicker">PROJECTS</div>
           <h1 className="p3page-title">NOT FOUND</h1>
@@ -49,7 +49,7 @@ export default function ProjectDetailPage() {
   const s = project.sections;
 
   return (
-    <PageShell variant="default" video={media.about}>
+    <PageShell variant="default" video={media.resume}>
       <header className="p3page-head">
         <div className="p3page-kicker">
           {project.index} / {project.status}

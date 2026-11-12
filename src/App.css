@@ -391,3 +391,34 @@ body {
     height: 52vh !important;
   }
 }
+
+.sc-menu-art-bg {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/soke-portofolio/assets/menu-art.webp');
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+}
+
+.sc-menu-caustics {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background: url('/soke-portofolio/assets/caustics.png') repeat;
+  mix-blend-mode: screen;
+  animation: caustics-shift 15s ease-in-out infinite;
+}
+
+@keyframes caustics-shift {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -100px -100px;
+  }
+}
+}

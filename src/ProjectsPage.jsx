@@ -5,7 +5,7 @@ import { projects } from "./content/projects";
 
 export default function ProjectsPage() {
   return (
-    <PageShell variant="default" video={media.about}>
+    <PageShell variant="default" video={media.resume}>
       <header className="p3page-head">
         <div className="p3page-kicker">02 / PROJECTS</div>
         <h1 className="p3page-title">PROJECTS</h1>
