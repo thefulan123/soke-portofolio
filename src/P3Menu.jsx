@@ -54,10 +54,11 @@ export default function P3Menu({ onNavigate }) {
         .p3-menu {
           position: relative;
           z-index: 20;
-          padding: 48px;
+          padding: clamp(24px, 5vh, 52px) 48px;
           display: flex;
           flex-direction: column;
           align-items: center;
+          gap: clamp(14px, 2.6vh, 34px);
           pointer-events: all;
         }
 
@@ -196,7 +197,7 @@ export default function P3Menu({ onNavigate }) {
         .p3-name-tag span:first-child { color: rgba(0, 0, 0, 0.86); }
 
         @media (max-width: 768px) {
-          .p3-menu { padding: 10px; transform: scale(0.68); }
+          .p3-menu { padding: 10px; gap: 34px; transform: scale(0.62); }
           .p3-name-tag {
             left: 34px;
             font-size: clamp(30px, 8.5vw, 44px);
